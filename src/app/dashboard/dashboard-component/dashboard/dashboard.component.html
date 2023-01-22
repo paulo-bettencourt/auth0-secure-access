@@ -1,0 +1,12 @@
+You are logged as the Administrator.
+
+There are some users in need to be approved:
+
+<mat-form-field appearance="fill">
+  <mat-label>Users</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let user of users" [value]="user.value">
+      {{user.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

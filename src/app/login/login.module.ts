@@ -7,6 +7,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {DashboardModule} from "../dashboard/dashboard.module";
 
 const routes: Routes = [{
   path: '',
@@ -17,14 +18,15 @@ const routes: Routes = [{
   declarations: [
     LoginComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    MatStepperModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        MatStepperModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatButtonModule,
+        DashboardModule
+    ]
 })
 export class LoginModule { }
