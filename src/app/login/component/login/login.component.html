@@ -21,10 +21,21 @@
         </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext (click)="submitData()">Next</button>
+          <button mat-button matStepperNext (click)="getOTP()">Next</button>
         </div>
       </form>
     </mat-step>
+
+    <mat-step label="Insert OTP">
+      <span></span>
+      <app-mobile [OTP]="otp"></app-mobile>
+      <span>Please insert the number</span>
+      <input type="text" #OTPValue>
+      <button mat-button type="submit" (click)="insertOTP(OTPValue.value)">Submit</button>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </mat-step>
+
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
       <div *ngIf="isLogged; then thenBlock else elseBlock">

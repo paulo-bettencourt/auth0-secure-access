@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(221, 236, 236);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone_body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22rem;
+  height: 40rem;
+  border-radius: 3vw;
+  background: rgb(68, 67, 67);
+  box-shadow: 1px 1px 5px 3px black;
+  z-index: 2;
+}
+
+.screen {
+  width: 21rem;
+  height: 39rem;
+  border-radius: 3vw;
+  background: url("https://assets.codepen.io/772926/phone-bg.png");
+  overflow: hidden;
+  box-shadow: 1px 1px 1px 1px rgb(68, 67, 67);
+}
+
+.cut {
+  position: relative;
+  top: -0.6rem;
+  border-radius: 10px;
+  left: 3.2rem;
+  width: 16rem;
+  height: 20px;
+  background: rgb(68, 67, 67);
+}
+
+.camera {
+  position: relative;
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  background: black;
+  left: 0.7rem;
+  top: -0.5rem;
+  z-index: 20;
+  box-shadow: 1px 1px 2px 2px black;
+}
+
+.camera_inner {
+  position: relative;
+  left: 0.2rem;
+  top: 0.2rem;
+  border-radius: 50%;
+  width: 21px;
+  height: 21px;
+  background: white;
+  box-shadow: 1px 1px 2px 2px white;
+}
+
+.camera_inner:hover {
+  width: 15px;
+  height: 15px;
+  left: 0.35rem;
+  top: 0.4rem;
+}
+
+.side_btn {
+  margin-bottom: 50px;
+}
+
+.volume {
+  width: 20px;
+  height: 120px;
+  border-radius: 5px;
+  position: relative;
+  right: 11px;
+  bottom: 130px;
+  background: rgb(59, 58, 58);
+  box-shadow: 1px 1px 3px 1px black;
+  z-index: 1;
+}
+
+.power {
+  width: 20px;
+  height: 50px;
+  border-radius: 5px;
+  position: relative;
+  right: 11px;
+  bottom: 100px;
+  background: rgb(59, 58, 58);
+  box-shadow: 1px 1px 3px 1px black;
+  z-index: 1;
+}
+
+.screen_contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 7%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.input input {
+  width: 300px;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1.5px 1.5px 5px 1px black;
+}
+
+button {
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 2px 2px 3px 1px black;
+}
+
+button:hover {
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+@media screen and (max-width: 280px) {
+  .phone_body {
+    width: 14rem;
+  }
+  .screen {
+    width: 14rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .phone_body {
+    width: 20rem;
+  }
+  .screen {
+    width: 19rem;
+  }
+  .cut {
+    left: 1.7rem;
+  }
+  .camera {
+    top: -0.5rem;
+  }
+  .input input {
+    width: 17rem;
+  }
+  button {
+    width: 17rem;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .phone_body {
+    height: 36rem;
+  }
+  .screen {
+    height: 35rem
+  }
+}

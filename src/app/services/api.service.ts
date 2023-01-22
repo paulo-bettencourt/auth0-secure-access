@@ -9,7 +9,8 @@ import {Token} from "../interfaces/token.interface";
 })
 export class ApiService {
 
-  url = 'http://localhost:3000/data'
+  url = 'http://localhost:3000/data';
+  urlOTP = 'http://localhost:3000/otp';
 
   constructor(private http: HttpClient) { }
 
@@ -17,4 +18,11 @@ export class ApiService {
     return this.http.post<Login>(this.url, usernameAndPassword);
   }
 
+  sendOTP(value: string) {
+    return this.http.post(this.urlOTP, value);
+  }
+
+  getOTP() {
+    return this.http.get(this.urlOTP);
+  }
 }

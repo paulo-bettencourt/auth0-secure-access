@@ -21,6 +21,7 @@ export class LoginComponent {
   password: string = this.secondFormGroup.controls['secondCtrl'].value  as string;
   isLogged = false;
   token!: string;
+  otp!: string;
 
   constructor(private _formBuilder: FormBuilder, private _service: ApiService) {}
 
@@ -43,4 +44,23 @@ export class LoginComponent {
     })
   }
 
+  getOTP() {
+    this._service.getOTP().subscribe({
+      next: (OTP) => {
+        console.log("OTP", OTP)
+      },
+      error: (err) => console.log(err)
+    })
+  }
+
+  insertOTP(value: string) {
+    console.log("valor input", value)
+    this._service.sendOTP(value).subscribe({
+      next: (OTP: any) => {
+        console.log("OTP", OTP)
+        this.otp = OTP.OTP;
+      },
+      error: (err) => console.log(err)
+    })
+  }
 }

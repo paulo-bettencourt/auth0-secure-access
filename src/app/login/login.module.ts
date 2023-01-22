@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {DashboardModule} from "../dashboard/dashboard.module";
+import {UiComponentsModule} from "../ui-components/ui-components.module";
 
 const routes: Routes = [{
   path: '',
@@ -26,7 +27,8 @@ const routes: Routes = [{
         ReactiveFormsModule,
         MatInputModule,
         MatButtonModule,
-        DashboardModule
+        DashboardModule,
+        UiComponentsModule
     ]
 })
 export class LoginModule { }
