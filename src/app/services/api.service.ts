@@ -9,20 +9,27 @@ import {Token} from "../interfaces/token.interface";
 })
 export class ApiService {
 
-  url = 'http://localhost:3000/data';
-  urlOTP = 'http://localhost:3000/otp';
+  urlGetOTP = 'http://localhost:3000/get-otp';
+  urlConfirmOTP = 'http://localhost:3000/confirm-otp';
+  urlLogin = 'http://localhost:3000/login';
+  urlTerms = 'http://localhost:3000/terms-and-conditions';
 
   constructor(private http: HttpClient) { }
 
-  login(usernameAndPassword: Login): Observable<Login> |  Observable<Token> {
-    return this.http.post<Login>(this.url, usernameAndPassword);
+  getOTP(usernameAndPassword: Login) {
+    return this.http.post(this.urlGetOTP, usernameAndPassword);
   }
 
-  sendOTP(value: string) {
-    return this.http.post(this.urlOTP, value);
+  confirmOTP(OTP: any) {
+    console.log("API OTP", OTP);
+    return this.http.post(this.urlConfirmOTP, OTP);
   }
 
-  getOTP() {
-    return this.http.get(this.urlOTP);
+  loginWithOTP(OTP: Login): Observable<Login> |  Observable<Token> {
+    return this.http.post<Login>(this.urlLogin, OTP);
+  }
+
+  submitTermsAndConditions(token: string) {
+    return this.http.post(this.urlTerms, {token: token});
   }
 }

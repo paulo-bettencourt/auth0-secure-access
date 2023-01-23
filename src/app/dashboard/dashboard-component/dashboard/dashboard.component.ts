@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {User} from '../../../interfaces/user.interface'
+import {ApiService} from "../../../services/api.service";
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -9,16 +10,15 @@ export class DashboardComponent {
 
   token: string  = '';
 
-  constructor() {
+  constructor(private _service: ApiService) {
     // @ts-ignore
     this.token = localStorage.getItem('token') ? localStorage.getItem('token') : '';
     console.log(this.token)
   }
 
-  users: User[] = [
-    {value: 'huey', viewValue: 'Huey'},
-    {value: 'dewey', viewValue: 'Dewey'},
-    {value: 'louie', viewValue: 'Louie'},
-  ];
-
+  submitTermsAndConditions() {
+    this._service.submitTermsAndConditions(this.token).subscribe({
+      next: (data) => console.log("submit response", data)
+    })
+  }
 }

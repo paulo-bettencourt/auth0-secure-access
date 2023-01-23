@@ -31,7 +31,10 @@
       <app-mobile [OTP]="otp"></app-mobile>
       <span>Please insert the number</span>
       <input type="text" #OTPValue>
-      <button mat-button type="submit" (click)="insertOTP(OTPValue.value)">Submit</button>
+      <p></p>
+      <button mat-button type="submit" (click)="confirmOTP(OTPValue.value)">Submit</button>
+      <p></p>
+      <button mat-button matStepperNext id="nextButtonOTP">Next</button>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button>
     </mat-step>
