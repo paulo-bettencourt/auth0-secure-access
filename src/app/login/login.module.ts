@@ -4,11 +4,12 @@ import { LoginComponent } from './component/login/login.component';
 import {RouterModule, Routes} from "@angular/router";
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {DashboardModule} from "../dashboard/dashboard.module";
 import {UiComponentsModule} from "../ui-components/ui-components.module";
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 const routes: Routes = [{
   path: '',
@@ -19,16 +20,18 @@ const routes: Routes = [{
   declarations: [
     LoginComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        MatStepperModule,
-        MatFormFieldModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatButtonModule,
-        DashboardModule,
-        UiComponentsModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatStepperModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    DashboardModule,
+    UiComponentsModule,
+    MatTooltipModule,
+    FormsModule
+  ]
 })
 export class LoginModule { }

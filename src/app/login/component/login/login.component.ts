@@ -1,7 +1,6 @@
-import {Component, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, ElementRef, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {ApiService} from "../../../services/api.service";
-import {Token} from "../../../interfaces/token.interface";
 
 @Component({
   selector: 'app-login',
@@ -23,27 +22,24 @@ export class LoginComponent {
   token!: string;
   otp!: string;
   nextButtonIfOTPConfirmed!: any;
+  otpValue!: any;
 
   constructor(private _formBuilder: FormBuilder, private _service: ApiService) {}
 
   getOTP() {
     this.username = this.firstFormGroup.controls['firstCtrl'].value  as string;
     this.password = this.secondFormGroup.controls['secondCtrl'].value  as string;
-console.log("DADOS", this.username)
     this._service.getOTP({username: this.username, password: this.password}).subscribe({
       next: (OTP: any) => {
         this.otp = OTP.OTP;
-        console.log("OTP", OTP);
       },
       error: (err) => console.log(err)
     })
   }
 
-  confirmOTP(OTP: string) {
-    console.log("valor input", OTP)
-    this._service.confirmOTP({otp: OTP}).subscribe({
+  confirmOTP() {
+    this._service.confirmOTP({otp: this.otpValue}).subscribe({
       next: (data: any) => {
-        console.log("Confirmed token", data)
         this.token = data.token;
         localStorage.setItem('token', data.token)
         this.nextButtonIfOTPConfirmed = document.getElementById('nextButtonOTP') as HTMLElement;

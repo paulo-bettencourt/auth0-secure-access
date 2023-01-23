@@ -27,7 +27,6 @@ export class ApiService {
   }
 
   confirmOTP(OTP: any) {
-    console.log("API OTP", OTP);
     return this.http.post(this.urlConfirmOTP, OTP);
   }
 
@@ -36,9 +35,7 @@ export class ApiService {
   }
 
   submitTermsAndConditions(token: string) {
-
     return this.http.post(this.urlTerms, {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token )})
-
   }
 
 }

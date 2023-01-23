@@ -5,17 +5,19 @@ import {
 
 import { Observable } from 'rxjs';
 
-/** Pass untouched request through to the next request handler. */
 @Injectable()
 export class RequestAdminInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
-    console.log("interceptou")
     const userToken = localStorage.getItem('token');
-    const modifiedReq = req.clone({
-      headers: req.headers.set('Authorization', `Bearer ${userToken}`),
-    });
-    return next.handle(modifiedReq);
+    if(userToken) {
+      const modifiedReq = req.clone({
+        headers: req.headers.set('Authorization', `Bearer ${userToken}`),
+      });
+      return next.handle(modifiedReq);
+    } else {
+      return next.handle(req);
+    }
   }
 }

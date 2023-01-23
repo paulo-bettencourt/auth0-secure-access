@@ -9,8 +9,8 @@ export class MobileComponent {
 
   @Input('OTP') OTP: any;
 
-  constructor() {
-    console.log("OTP DO COMPONENTE MOBILE: ", this.OTP)
+  copyOTP() {
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(this.OTP);
   }
-
 }

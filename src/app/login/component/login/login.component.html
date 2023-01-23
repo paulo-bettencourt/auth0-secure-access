@@ -27,23 +27,31 @@
     </mat-step>
 
     <mat-step label="Insert OTP">
-      <span></span>
-      <app-mobile [OTP]="otp"></app-mobile>
-      <span>Please insert the number</span>
-      <input type="text" #OTPValue>
-      <p></p>
-      <button mat-button type="submit" (click)="confirmOTP(OTPValue.value)">Submit</button>
-      <p></p>
-      <button mat-button matStepperNext id="nextButtonOTP">Next</button>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+        <div class="insert-otp-general-container-1">
+          <app-mobile [OTP]="otp"></app-mobile>
+          <div class="text-top">
+            <span>Please insert the OTP that you're received:</span>
+          </div>
+          <p></p>
+          <mat-form-field>
+            <mat-label>OTP</mat-label>
+            <input matInput [(ngModel)]="otpValue" required>
+          </mat-form-field>
+          <button mat-raised-button  (click)="confirmOTP()">Submit</button>
+          <p></p>
+          <button mat-button matStepperNext id="nextButtonOTP">Next</button>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
     </mat-step>
 
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
-      <div *ngIf="isLogged; then thenBlock else elseBlock">
+      <div *ngIf="isLogged; then thenBlock else elseBlock" class="last-dialog">
       </div>
-      <ng-template #thenBlock><app-dashboard></app-dashboard></ng-template>
+      <ng-template #thenBlock>
+        <app-dashboard></app-dashboard>
+      </ng-template>
       <ng-template #elseBlock>Username and/or password are incorrect</ng-template>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button>

@@ -5,3 +5,28 @@
 .mat-mdc-form-field {
   margin-top: 16px;
 }
+
+.terms-and-conditions {
+  width: 90%;
+  padding: 4%;
+  border-radius: 15px;
+  border: 1px solid grey;
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 08rem;
+  line-height: 1.2;
+}
+
+#terms-button {
+  width: 100% !important;
+  padding: 2%;
+  margin-top: 2%;
+}
+
+.img-chart {
+  max-width: 100%;
+}
+
+.chart-container {
+  display: block;
+}

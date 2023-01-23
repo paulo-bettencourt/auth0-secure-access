@@ -178,6 +178,22 @@ button:hover {
   }
 }
 
+#otp-input {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1rem;
+  padding: 3%;
+  text-align: center;
+  border-radius: 15px;
+  width: 90%;
+}
+
+#copy-icon {
+  cursor: pointer;
+}
+
 @media screen and (max-height: 600px) {
   .phone_body {
     height: 36rem;
@@ -185,4 +201,5 @@ button:hover {
   .screen {
     height: 35rem
   }
+
 }

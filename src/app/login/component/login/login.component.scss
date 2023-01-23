@@ -10,3 +10,24 @@
   width: 50%;
   margin: auto;
 }
+
+.mat-label-container-otp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+}
+
+.insert-otp-general-container-1 {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.text-top {
+  margin-top: 10% !important;
+}
+
+.last-dialog {
+  justify-content: center;
+  text-align: center;
+}

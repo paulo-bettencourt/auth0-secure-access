@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mobile-container">
   <div class="phone_body">
     <div class="screen">
       <div class="cut"></div>
@@ -7,10 +7,14 @@
       </div>
       <div class="screen_contents">
         <h1>OTP Login</h1>
-        <div class="input">
-          <input type="text" value="{{OTP}}" disabled>
+        <div class="input" id="otp-input">
+          <div>
+            <span>{{OTP}}</span>
+          </div>
+          <div>
+            <mat-icon (click)="copyOTP()" matTooltip="Click to copy the OTP" id="copy-icon">file_copy</mat-icon>
+          </div>
         </div>
-        <button type="submit">Submit</button>
       </div>
     </div>
   </div>
