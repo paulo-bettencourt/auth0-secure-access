@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Login} from "../interfaces/login.interface";
 import {Observable} from "rxjs";
 import {Token} from "../interfaces/token.interface";
@@ -8,6 +8,12 @@ import {Token} from "../interfaces/token.interface";
   providedIn: 'root'
 })
 export class ApiService {
+
+  headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer asidjfksadjflkasdjdfkasjfkasjfkljaskdf`
+  });
+  requestOptions = { headers: this.headers };
 
   urlGetOTP = 'http://localhost:3000/get-otp';
   urlConfirmOTP = 'http://localhost:3000/confirm-otp';
@@ -30,6 +36,9 @@ export class ApiService {
   }
 
   submitTermsAndConditions(token: string) {
-    return this.http.post(this.urlTerms, {token: token});
+
+    return this.http.post(this.urlTerms, {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token )})
+
   }
+
 }
