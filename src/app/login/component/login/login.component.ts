@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {ApiService} from "../../../services/api.service";
 
@@ -7,13 +7,16 @@ import {ApiService} from "../../../services/api.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements AfterViewInit{
 
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
+  });
+  thirdFormGroup = this._formBuilder.group({
+    thirdCtrl: ['', Validators.required],
   });
   isLinear = true;
   username: string = this.firstFormGroup.controls['firstCtrl'].value  as string;
@@ -25,6 +28,11 @@ export class LoginComponent {
   otpValue!: any;
 
   constructor(private _formBuilder: FormBuilder, private _service: ApiService) {}
+
+  ngAfterViewInit(): void {
+    const button = document.getElementById('nextButtonOTP') as HTMLElement;
+    button.style.display = "none";
+    }
 
   getOTP() {
     this.username = this.firstFormGroup.controls['firstCtrl'].value  as string;

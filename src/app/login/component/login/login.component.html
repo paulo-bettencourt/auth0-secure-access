@@ -3,7 +3,7 @@
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Insert your username</ng-template>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="input-forms">
           <mat-label>Username</mat-label>
           <input matInput placeholder="Username" formControlName="firstCtrl" required>
         </mat-form-field>
@@ -14,47 +14,57 @@
     </mat-step>
     <mat-step [stepControl]="secondFormGroup" label="Insert your password">
       <form [formGroup]="secondFormGroup">
-        <mat-form-field appearance="fill">
-          <mat-label>Password</mat-label>
+        <mat-form-field appearance="fill" class="input-forms">
+          <mat-label>Password</mat-label >
           <input matInput formControlName="secondCtrl" placeholder="Password" type="password"
                  required>
         </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext (click)="getOTP()">Next</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
         </div>
       </form>
     </mat-step>
 
-    <mat-step label="Insert OTP">
+    <mat-step [stepControl]="thirdFormGroup" label="Insert OTP">
         <div class="insert-otp-general-container-1">
-          <app-mobile [OTP]="otp"></app-mobile>
-          <div class="text-top">
-            <span>Please insert the OTP that you're received:</span>
-          </div>
-          <p></p>
-          <mat-form-field>
-            <mat-label>OTP</mat-label>
-            <input matInput [(ngModel)]="otpValue" required>
-          </mat-form-field>
-          <button mat-raised-button  (click)="confirmOTP()">Submit</button>
-          <p></p>
-          <button mat-button matStepperNext id="nextButtonOTP">Next</button>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
+          <form [formGroup]="thirdFormGroup">
+            <app-mobile [OTP]="otp"></app-mobile>
+            <div class="text-top">
+              <span>Please insert the OTP that you're received:</span>
+            </div>
+            <p></p>
+            <mat-form-field>
+              <mat-label>OTP</mat-label>
+              <input formControlName="thirdCtrl" matInput [(ngModel)]="otpValue" required>
+            </mat-form-field>
+            <button mat-raised-button (click)="confirmOTP()">Submit</button>
+            <p></p>
+            <button mat-button matStepperNext id="nextButtonOTP">Next</button>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </form>
         </div>
     </mat-step>
 
-    <mat-step>
+    <mat-step class=>
       <ng-template matStepLabel>Done</ng-template>
       <div *ngIf="isLogged; then thenBlock else elseBlock" class="last-dialog">
       </div>
-      <ng-template #thenBlock>
+      <ng-template #thenBlock >
         <app-dashboard></app-dashboard>
       </ng-template>
-      <ng-template #elseBlock>Username and/or password are incorrect</ng-template>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <ng-template #elseBlock class="">
+        <div class="incorrect-data">
+          <p>The data you've inserted is incorrect.</p>
+          <p>Please provide the correct data.</p>
+        </div>
+      </ng-template>
+      <div class="dashboard-center">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
     </mat-step>
   </mat-stepper>
 </div>
