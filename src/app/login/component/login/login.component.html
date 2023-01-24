@@ -22,7 +22,7 @@
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext (click)="getOTP()">Next</button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button (click)="stepper.reset(); resetData()">Reset</button>
         </div>
       </form>
     </mat-step>
@@ -43,7 +43,7 @@
             <p></p>
             <button mat-button matStepperNext id="nextButtonOTP">Next</button>
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button mat-button (click)="stepper.reset(); resetData()">Reset</button>
           </form>
         </div>
     </mat-step>
@@ -63,7 +63,7 @@
       </ng-template>
       <div class="dashboard-center">
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="stepper.reset(); resetData()">Reset</button>
       </div>
     </mat-step>
   </mat-stepper>

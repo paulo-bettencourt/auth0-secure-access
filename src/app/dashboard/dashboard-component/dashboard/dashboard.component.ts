@@ -9,22 +9,19 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog
 })
 export class DashboardComponent {
 
-  token: string  = '';
-
+  token!: string;
   animal!: string;
   name!: string;
   termsAndConditions: boolean = true;
 
-
   constructor(private _service: ApiService, public dialog: MatDialog) {
     // @ts-ignore
-    this.token = localStorage.getItem('token') ? localStorage.getItem('token') : '';
+    this.token = localStorage.getItem('token');
   }
 
   submitTermsAndConditions() {
     this._service.submitTermsAndConditions(this.token).subscribe({
-      next: (data) => {
-        console.log("submit response", data),
+      next: () => {
           this.openDialog();
       }
     })
@@ -37,7 +34,6 @@ export class DashboardComponent {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      console.log('The dialog was closed');
       this.animal = result;
     });
   }

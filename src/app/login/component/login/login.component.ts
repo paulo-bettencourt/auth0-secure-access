@@ -63,4 +63,8 @@ export class LoginComponent implements AfterViewInit{
       }
     })
   }
+
+  resetData() {
+    localStorage.removeItem('token');
+  }
 }
