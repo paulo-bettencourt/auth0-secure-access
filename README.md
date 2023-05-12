@@ -12,8 +12,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ![Screenshot 2023-05-12 at 09 59 38](https://github.com/paulo-bettencourt/login-jwt-token-and-otp/assets/37920932/da911d76-790f-4c17-be5e-34f687f2eb7a)
 
-![Screenshot 2023-05-12 at 09 59 59](https://github.com/paulo-bettencourt/login-jwt-token-and-otp/assets/37920932/03f266b9-081e-472a-9ea2-c9fa7a6ac8c1)
-
 ![Screenshot 2023-05-12 at 10 08 02](https://github.com/paulo-bettencourt/login-jwt-token-and-otp/assets/37920932/559b3f44-4ba1-4a20-ac38-10b4eb1faf26)
 
 ## Development server
